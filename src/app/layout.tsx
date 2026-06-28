@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Toaster } from "@/src/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function RootLayout({
   children,
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );

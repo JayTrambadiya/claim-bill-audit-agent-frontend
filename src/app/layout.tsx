@@ -8,6 +8,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap"
+        />
+      </head>
       <body>
         {children}
         <Toaster />

@@ -24,11 +24,19 @@ import {
   Clock,
   Download,
   Filter,
+  Info,
   Loader2,
   Search,
   ShieldCheck,
   XCircle,
 } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipPortal,
+  TooltipPositioner,
+  TooltipTrigger,
+} from "@/src/components/ui/tooltip";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
@@ -306,11 +314,37 @@ export default function AuditContent() {
                               "-"
                             )}
                           </TableCell>
-                          <TableCell
-                            className="max-w-[260px] truncate"
-                            title={discText}
-                          >
-                            {discText || "-"}
+                          <TableCell className="max-w-[260px] min-w-0">
+                            {discText ? (
+                              <span className="flex items-center gap-1.5 min-w-0">
+                                <span className="min-w-0 flex-1 truncate">
+                                  {discText}
+                                </span>
+                                <Tooltip>
+                                  <TooltipTrigger
+                                    render={
+                                      <button
+                                        type="button"
+                                        className="inline-flex shrink-0 cursor-help rounded-full p-0.5 text-muted-foreground hover:text-foreground"
+                                      />
+                                    }
+                                  >
+                                    <Info className="size-3.5 shrink-0" />
+                                  </TooltipTrigger>
+                                  <TooltipPortal>
+                                    <TooltipPositioner>
+                                      <TooltipContent>
+                                        <p className="whitespace-pre-wrap break-words">
+                                          {discText}
+                                        </p>
+                                      </TooltipContent>
+                                    </TooltipPositioner>
+                                  </TooltipPortal>
+                                </Tooltip>
+                              </span>
+                            ) : (
+                              "-"
+                            )}
                           </TableCell>
                           <TableCell className="text-center">
                             {audit.discrepancyCount ?? 0}

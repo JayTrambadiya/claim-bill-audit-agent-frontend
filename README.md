@@ -55,11 +55,7 @@ AWS_ACCESS_KEY_ID=your-access-key
 AWS_SECRET_ACCESS_KEY=your-secret-key
 NEXT_PUBLIC_BACKEND_URL=https://your-api-gateway-url.amazonaws.com
 
-# AI
-GEMINI_API_KEY=your-gemini-api-key
-GEMINI_PROJECT_NAME=projects/your-project-id
-GEMINI_PROJECT_NUMBER=your-project-number
-```
+
 
 ### Run
 
